@@ -10,6 +10,9 @@ public class Main {
         tree.add(4);
         tree.add(10);
         tree.add(12);
+        tree.add(15);
+        tree.add(6);
+        //tree.add(17);
         tree.print();
     }
 }

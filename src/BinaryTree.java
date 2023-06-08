@@ -36,7 +36,6 @@ public class BinaryTree<T extends Comparable<T>> { // проверяет, ест
                 return true; // выходим из цикла и возвращаем true
             }
         }
-        //return false; // если ни где не вышли, возвращаем false - после балансировки не нужно
     }
 
 
