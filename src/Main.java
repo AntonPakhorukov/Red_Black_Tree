@@ -12,7 +12,6 @@ public class Main {
         tree.add(12);
         tree.add(15);
         tree.add(6);
-        //tree.add(17);
         tree.print();
     }
 }
