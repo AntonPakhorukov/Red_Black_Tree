@@ -7,6 +7,9 @@ public class Main {
         tree.add(2);
         tree.add(7);
         tree.add(1);
+        tree.add(4);
+        tree.add(10);
+        tree.add(12);
         tree.print();
     }
 }

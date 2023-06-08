@@ -187,27 +187,23 @@ public class BinaryTree<T extends Comparable<T>> { // проверяет, ест
         public PrintNode(Node node) {
             depth = 0;
             this.node = node;
-            str = " ";
+            str = node.value.toString();
         }
     }
 
     private int nodeCount(Node node, int count){
-
-        if (node.right != null || node.left != null) {
-            count = 2;
-        } else if (node.left != null && node.left != null) {
-            count = 3;
-        } else {
-            count = 1;
+        if (node != null) {
+            count++;
+            return count + nodeCount(node.left, 0) + nodeCount(node.right, 0);
         }
         return count;
     }
 
-    public int maxDepth() {
+    public int maxDepth() { //+
         return maxDepth2(0, root);
     }
 
-    private int maxDepth2(int depth, Node node) {
+    private int maxDepth2(int depth, Node node) { //+
         depth++;
         int left = depth;
         int right = depth;
@@ -220,7 +216,7 @@ public class BinaryTree<T extends Comparable<T>> { // проверяет, ест
         return left > right ? left : right;
     }
 
-    public void print() {
+    public void print() { //+
         int maxDepth = maxDepth() + 3;
         int nodeCount = nodeCount(root, 0);
         int width = 50;
@@ -275,16 +271,16 @@ public class BinaryTree<T extends Comparable<T>> { // проверяет, ест
         for (var row : list) {
             for (var item : row) {
                 if (item.node != null && item.node.color == Color.red) {
-                    System.out.println("\u001B[31m" + item.str + " " + "\u001B[0m");
+                    System.out.print("\u001B[31m" + item.str + " " + "\u001B[0m");
                 } else {
-                    System.out.println(item.str + " ");
+                    System.out.print(item.str + " ");
                 }
             }
             System.out.println();
         }
     }
 
-    private void printLines(List<List<PrintNode>> list, int i, int j, int i2, int j2) {
+    private void printLines(List<List<PrintNode>> list, int i, int j, int i2, int j2) { //+
         // i и j - это текущий индекс (место), i2 и j2 - это до куда нужно провести линию
         if (i2 > i) {
             while (i < i2) { // если текущая высота меньше, чем до которой нужно дойти
